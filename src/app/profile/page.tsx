@@ -8,6 +8,7 @@ import { Panel, PanelContent } from "@/features/portfolio/components/panel"
 import { ProfileHeader } from "@/features/portfolio/components/profile-header"
 
 import { LinkButtons } from "./link-buttons"
+import { PROFILE_SOUNDS } from "./sounds"
 
 export const metadata: Metadata = {
   title: "Zero Notch",
@@ -29,19 +30,23 @@ const PROFILE_LINKS = [
   // { label: "Donasi", href: "#" },
 ]
 
+// Klik diamond memutar 1 suara acak tiap klik (tidak mengulang bunyi
+// sebelumnya): 8 suara tombol link + fahhh.
+const DIAMOND_SOUNDS = [...PROFILE_SOUNDS, "/sounds/fahhh-pump.mp3"]
+
 // Halaman profil ala screenshot: hero diamond + profil + tombol link,
 // TANPA navbar atas (route ini di luar grup (app), jadi SiteHeader dan
 // SiteBottomNav tidak ikut dirender). Yang diubah dari tampilan asli hanya:
 // 1. tidak ada navbar,
 // 2. ikon sosial diganti teks ex,
 // 3. panel grafik contributions diganti tombol link pixel di bawah ini,
-// 4. klik diamond memutar bunyi fahhh (MP3 myinstants, file lokal di
-//    public/sounds/fahhh-pump.mp3), bukan metal-click bawaan.
+// 4. klik diamond memutar 1 suara acak tiap klik (8 suara link + fahhh),
+//    bukan metal-click bawaan.
 // Sisanya memakai komponen yang sama persis dengan homepage.
 export default function ProfilePage() {
   return (
     <div className="mx-auto md:max-w-3xl">
-      <ProfileHeader clickSoundSrc="/sounds/fahhh-pump.mp3" />
+      <ProfileHeader clickSoundSrcs={DIAMOND_SOUNDS} />
 
       <Panel className="screen-line-bottom-none screen-line-top-none">
         <PanelContent>
