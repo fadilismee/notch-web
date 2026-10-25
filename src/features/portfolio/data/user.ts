@@ -7,32 +7,34 @@ export const USER: User = {
   username: "fadilismee",
   gender: "male",
   pronouns: "he/him",
-  bio: "Workspace notch yang fokus untuk Windows.",
+  bio: "Your focused workspace inside one notch.",
   flipSentences: [
-    "Workspace notch yang fokus untuk Windows.",
-    "Mode Kerja dan Kuliah — hanya tools yang relevan.",
-    "Kalender UT, modul, timer fokus, dan Kuma.",
-    "Data workspace tetap lokal di perangkat.",
+    "Your focused workspace inside one notch.",
+    "Work and Study modes — only the tools you need.",
+    "UT calendar, modules, focus timer, and Kuma.",
+    "Your workspace data stays on your device.",
   ],
   address: "Windows 10 & 11, 64-bit",
   phoneNumberB64: "LS0t", // placeholder: ganti dengan nomor asli, base64
   emailB64: "aGFsb0B6ZXJvLW5vdGNoLmFwcA==", // halo@zero-notch.app (placeholder, repo tidak mencantumkan email)
   website: "https://github.com/fadilismee/zeronotch",
-  jobTitle: "Notch untuk Windows",
+  jobTitle: "Notch workspace for Windows",
   jobs: [
     {
-      title: "Notch untuk Windows",
+      title: "Notch workspace for Windows",
       company: "zeronotch",
       website: "https://github.com/fadilismee/zeronotch",
       experienceId: "zero-notch",
     },
   ],
-  about: `- zeronotch mengubah area di sekitar notch Windows jadi workspace ringkas. Ganti mode Kerja dan Kuliah, jadi antarmuka hanya menampilkan tools yang relevan dengan konteks saat ini.
-- Mode Kuliah: tugas, kalender UT, timer fokus, streak belajar, catatan, cari/unduh modul, dan pendamping interaktif Kuma.
-- Mode Kerja: Beranda, Fokus Pomodoro + streak, Utilitas (File Shelf, Clipboard, Kalkulator, Cermin, shortcut), dan Musik dengan kontrol ringkas + lirik opsional. AI opsional lewat endpoint OpenAI-compatible milikmu sendiri.
-- Download: [Unduh untuk Windows](https://github.com/fadilismee/zeronotch/releases/download/v1.0.9/zeronotch-Setup-v1.0.9.exe) — rilis v1.0.9, installer zeronotch-Setup-v1.0.9.exe, Windows 10/11 64-bit. Linux menyusul. Installer saat ini belum ditandatangani, jadi SmartScreen bisa muncul; cek SHA-256 di catatan rilis.
-- Repo: [fadilismee/zeronotch](https://github.com/fadilismee/zeronotch), lisensi GPL-3.0, dibuat 25 Okt 2026. Per 25 Okt 2026: 0 stars, 1 rilis (v1.0.9).
-- Dukungan: [cebanmatters.com/zeronotch](https://cebanmatters.com/zeronotch).
+  about: `- One notch. Two focused spaces. zeronotch brings your work and study tools into one compact Windows workspace, designed to keep you focused without breaking your flow.
+- Switch context, not applications. Each mode shows only the features relevant to what you are doing.
+- Study mode: UT calendar, course schedule, module search and download, study notes, focus timer, learning streak, and Kuma, your interactive companion.
+- Work mode: focus timer, Pomodoro sessions, tasks, music with lyrics, File Shelf, clipboard history, calculator, mirror, app shortcuts, and optional AI through your own OpenAI-compatible endpoint.
+- Your workspace stays yours. Workspace data stays on your device, the camera is used for local mirror preview only, and no account is required for basic utilities.
+- Download: [Download zeronotch for Windows](https://github.com/fadilismee/zeronotch/releases/download/v1.0.9/zeronotch-Setup-v1.0.9.exe) — version 1.0.9, Windows 10/11 64-bit. Linux coming soon. The installer is not code-signed yet, so SmartScreen may appear.
+- Repo: [fadilismee/zeronotch](https://github.com/fadilismee/zeronotch), GPL-3.0 license.
+- Support: [cebanmatters.com/zeronotch](https://cebanmatters.com/zeronotch).
 `,
   avatar: "/zero-notch-cat-avatar.jpg",
   avatarSketch: "/zero-notch-cat-avatar.jpg",

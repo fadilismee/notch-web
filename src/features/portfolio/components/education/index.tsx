@@ -16,7 +16,7 @@ export function Education() {
     <Panel id={ID}>
       <PanelHeader>
         <PanelTitle>
-          <a href={`#${ID}`}>Untuk siapa</a>
+          <a href={`#${ID}`}>Who it&apos;s for</a>
           <PanelTitleCopy id={ID} />
         </PanelTitle>
       </PanelHeader>

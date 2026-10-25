@@ -25,7 +25,7 @@ export function Hello() {
         className="top-4 left-full ml-3 hidden w-36 flex-col items-start xl:flex"
         aria-hidden
       >
-        <span className="-rotate-3">unduh di sini</span>
+        <span className="-rotate-3">download here</span>
         <HandwrittenArrow className="mt-2 -rotate-3" />
       </HandwrittenNote>
 

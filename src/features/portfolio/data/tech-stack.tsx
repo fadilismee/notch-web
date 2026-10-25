@@ -1,50 +1,50 @@
 import type { TechStack } from "../types/tech-stack"
 
-// Fitur dari README repo fadilismee/zeronotch (mode Kerja / Kuliah).
+// Features from the fadilismee/zeronotch repo README (Work / Study modes).
 export const TECH_STACK: TechStack[] = [
   {
     key: "beranda",
-    title: "Beranda",
+    title: "Home",
     href: "#stack",
     icon: (
       <svg viewBox="0 0 24 24" aria-hidden>
         <circle cx="12" cy="12" r="10" fill="currentColor" />
       </svg>
     ),
-    categories: ["Kerja"],
+    categories: ["Work"],
   },
   {
     key: "fokus",
-    title: "Fokus",
+    title: "Focus",
     href: "#stack",
     icon: (
       <svg viewBox="0 0 24 24" aria-hidden>
         <circle cx="12" cy="12" r="10" fill="currentColor" />
       </svg>
     ),
-    categories: ["Kerja"],
+    categories: ["Work"],
   },
   {
     key: "streak",
-    title: "Streak belajar",
+    title: "Learning streak",
     href: "#stack",
     icon: (
       <svg viewBox="0 0 24 24" aria-hidden>
         <circle cx="12" cy="12" r="10" fill="currentColor" />
       </svg>
     ),
-    categories: ["Kuliah"],
+    categories: ["Study"],
   },
   {
     key: "utilitas",
-    title: "Utilitas",
+    title: "Utilities",
     href: "#stack",
     icon: (
       <svg viewBox="0 0 24 24" aria-hidden>
         <circle cx="12" cy="12" r="10" fill="currentColor" />
       </svg>
     ),
-    categories: ["Kerja"],
+    categories: ["Work"],
   },
   {
     key: "file-shelf",
@@ -55,7 +55,7 @@ export const TECH_STACK: TechStack[] = [
         <circle cx="12" cy="12" r="10" fill="currentColor" />
       </svg>
     ),
-    categories: ["Kerja"],
+    categories: ["Work"],
   },
   {
     key: "clipboard",
@@ -66,106 +66,106 @@ export const TECH_STACK: TechStack[] = [
         <circle cx="12" cy="12" r="10" fill="currentColor" />
       </svg>
     ),
-    categories: ["Kerja"],
+    categories: ["Work"],
   },
   {
     key: "kalkulator",
-    title: "Kalkulator",
+    title: "Calculator",
     href: "#stack",
     icon: (
       <svg viewBox="0 0 24 24" aria-hidden>
         <circle cx="12" cy="12" r="10" fill="currentColor" />
       </svg>
     ),
-    categories: ["Kerja"],
+    categories: ["Work"],
   },
   {
     key: "cermin",
-    title: "Cermin",
+    title: "Mirror",
     href: "#stack",
     icon: (
       <svg viewBox="0 0 24 24" aria-hidden>
         <circle cx="12" cy="12" r="10" fill="currentColor" />
       </svg>
     ),
-    categories: ["Kerja"],
+    categories: ["Work"],
   },
   {
     key: "shortcut",
-    title: "Shortcut aplikasi",
+    title: "App shortcuts",
     href: "#stack",
     icon: (
       <svg viewBox="0 0 24 24" aria-hidden>
         <circle cx="12" cy="12" r="10" fill="currentColor" />
       </svg>
     ),
-    categories: ["Kerja"],
+    categories: ["Work"],
   },
   {
     key: "musik",
-    title: "Musik + lirik",
+    title: "Music + lyrics",
     href: "#stack",
     icon: (
       <svg viewBox="0 0 24 24" aria-hidden>
         <circle cx="12" cy="12" r="10" fill="currentColor" />
       </svg>
     ),
-    categories: ["Kerja"],
+    categories: ["Work"],
   },
   {
     key: "ai-opsional",
-    title: "AI opsional",
+    title: "Optional AI",
     href: "#stack",
     icon: (
       <svg viewBox="0 0 24 24" aria-hidden>
         <circle cx="12" cy="12" r="10" fill="currentColor" />
       </svg>
     ),
-    categories: ["Kerja"],
+    categories: ["Work"],
   },
   {
     key: "kalender-ut",
-    title: "Kalender UT",
+    title: "UT calendar",
     href: "#stack",
     icon: (
       <svg viewBox="0 0 24 24" aria-hidden>
         <circle cx="12" cy="12" r="10" fill="currentColor" />
       </svg>
     ),
-    categories: ["Kuliah"],
+    categories: ["Study"],
   },
   {
     key: "modul",
-    title: "Modul (cari & unduh)",
+    title: "Modules (search & download)",
     href: "#stack",
     icon: (
       <svg viewBox="0 0 24 24" aria-hidden>
         <circle cx="12" cy="12" r="10" fill="currentColor" />
       </svg>
     ),
-    categories: ["Kuliah"],
+    categories: ["Study"],
   },
   {
     key: "catatan",
-    title: "Catatan",
+    title: "Notes",
     href: "#stack",
     icon: (
       <svg viewBox="0 0 24 24" aria-hidden>
         <circle cx="12" cy="12" r="10" fill="currentColor" />
       </svg>
     ),
-    categories: ["Kuliah"],
+    categories: ["Study"],
   },
   {
     key: "tugas",
-    title: "Tugas",
+    title: "Tasks",
     href: "#stack",
     icon: (
       <svg viewBox="0 0 24 24" aria-hidden>
         <circle cx="12" cy="12" r="10" fill="currentColor" />
       </svg>
     ),
-    categories: ["Kuliah"],
+    categories: ["Study"],
   },
   {
     key: "kuma",
@@ -176,17 +176,17 @@ export const TECH_STACK: TechStack[] = [
         <circle cx="12" cy="12" r="10" fill="currentColor" />
       </svg>
     ),
-    categories: ["Kuliah"],
+    categories: ["Study"],
   },
   {
     key: "timer-fokus",
-    title: "Timer fokus",
+    title: "Focus timer",
     href: "#stack",
     icon: (
       <svg viewBox="0 0 24 24" aria-hidden>
         <circle cx="12" cy="12" r="10" fill="currentColor" />
       </svg>
     ),
-    categories: ["Kuliah"],
+    categories: ["Study"],
   },
 ]

@@ -11,59 +11,102 @@ import { PanelTitleCopy } from "../panel-title-copy"
 
 const ID = "blocks"
 
-// Screenshot fitur zeronotch: 3 dari repo (docs/img) + 3 kiriman user
-// (Beranda, Kalender UT, Fokus belajar). Kartu ikon aplikasi diganti
-// screenshot Beranda sesuai permintaan terakhir user.
-// Blok bawaan chanhdai TIDAK dipakai di homepage ini dan TIDAK dihapus:
-// kode BlockItem/getBlocks tetap ada di repo, tinggal pakai lagi kalau mau.
-// Repo hanya menyediakan 3 screenshot fitur, jadi kartu ke-4 memakai ikon
-// aplikasi asli (bukan screenshot palsu).
+// Screenshot fitur zeronotch asli kiriman user (13 file di
+// public/zeronotch; kartu memakai 12, music.png lama tidak lagi dipakai
+// tapi filenya tetap ada). Blok bawaan chanhdai TIDAK dipakai di homepage
+// ini dan TIDAK dihapus: kode BlockItem/getBlocks tetap ada di repo.
 const FEATURE_SCREENSHOTS = [
   {
-    title: "Mode Kuliah",
+    title: "Work overview",
     description:
-      "Tugas, kalender UT, timer fokus, streak belajar, dan Kuma.",
-    image: "/zeronotch/overview-study.png",
-    width: 840,
-    height: 364,
-  },
-  {
-    title: "Musik",
-    description: "Kontrol playback ringkas dengan lirik opsional.",
-    image: "/zeronotch/music.png",
-    width: 620,
-    height: 364,
-  },
-  {
-    title: "Clipboard",
-    description: "Riwayat clipboard yang bisa di-scroll, dalam bentuk kartu.",
-    image: "/zeronotch/clipboard.png",
-    width: 840,
-    height: 364,
-  },
-  {
-    title: "Mode produktif",
-    description:
-      "Beranda kerja: pintasan, Pomodoro 25:00, progres hari, tugas, catatan, dan kalkulator.",
+      "Home for work: shortcuts, Pomodoro, today's progress, tasks, and notes.",
     image: "/zeronotch/beranda.png",
     width: 1094,
     height: 455,
   },
   {
-    title: "Kalender UT",
+    title: "Study overview",
     description:
-      "Kalender UT dengan agenda Forum Diskusi dan catatan kuliah per tanggal.",
+      "Tasks, UT calendar, focus timer, learning streak, and Kuma.",
+    image: "/zeronotch/overview-study.png",
+    width: 840,
+    height: 364,
+  },
+  {
+    title: "Focus, streak & Kuma",
+    description:
+      "A 25-minute focus timer, learning streak, and your interactive companion.",
+    image: "/zeronotch/fokus-belajar.png",
+    width: 925,
+    height: 456,
+  },
+  {
+    title: "Music",
+    description:
+      "Control playback, volume, and skip tracks without leaving your flow.",
+    image: "/zeronotch/music-player.png",
+    width: 800,
+    height: 458,
+  },
+  {
+    title: "Lyrics",
+    description: "Lyrics with translation, synced to the current track.",
+    image: "/zeronotch/lyrics.png",
+    width: 1060,
+    height: 461,
+  },
+  {
+    title: "Clipboard",
+    description: "Scroll through copied text, links, code, and images.",
+    image: "/zeronotch/clipboard.png",
+    width: 840,
+    height: 364,
+  },
+  {
+    title: "File Shelf",
+    description: "Frequently used files and references within quick reach.",
+    image: "/zeronotch/file-shelf.png",
+    width: 1046,
+    height: 448,
+  },
+  {
+    title: "Calculator",
+    description: "Quick calculations without opening another application.",
+    image: "/zeronotch/calculator.png",
+    width: 1050,
+    height: 448,
+  },
+  {
+    title: "Mirror",
+    description:
+      "A local camera preview with a simple, distraction-free layout.",
+    image: "/zeronotch/mirror.png",
+    width: 596,
+    height: 488,
+  },
+  {
+    title: "Module downloader",
+    description:
+      "Search modules by code or title, then download the matching material.",
+    image: "/zeronotch/module-downloader.png",
+    width: 1062,
+    height: 452,
+  },
+  {
+    title: "UT calendar",
+    description:
+      "UT calendar with discussion forums and study notes per date.",
     image: "/zeronotch/kalender-ut.png",
     width: 990,
     height: 457,
   },
   {
-    title: "Fokus belajar",
+    title: "Ask AI",
     description:
-      "Timer fokus 25 menit, streak belajar, dan pendamping interaktif.",
-    image: "/zeronotch/fokus-belajar.png",
-    width: 925,
-    height: 456,
+      "Ask anything — AI reads your full screen when you attach a capture.",
+    image: "/zeronotch/ask-ai.png",
+    width: 966,
+    height: 454,
   },
 ]
 
@@ -83,9 +126,9 @@ export function Blocks() {
         aria-hidden
       >
         <span className="-rotate-3 text-right">
-          screenshot asli,
+          real screenshots,
           <span className="block" />
-          dari app
+          from the app
         </span>
         <HandwrittenArrow className="-scale-x-100 -rotate-6" />
       </HandwrittenNote>

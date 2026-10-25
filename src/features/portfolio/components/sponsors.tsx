@@ -64,7 +64,7 @@ export function Sponsors() {
         <span className="-rotate-3">
           donate,
           <span className="block" />
-          letakkan namamu di sini
+          put your name here
         </span>
         <HandwrittenArrow className="mt-2 -rotate-3" />
       </HandwrittenNote>
