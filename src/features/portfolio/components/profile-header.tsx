@@ -14,7 +14,7 @@ export function ProfileHeader({
 }) {
   return (
     <div className="screen-line-bottom grid grid-cols-[auto_1fr] grid-rows-[1fr_auto] overflow-y-clip border-x border-x-line after:z-1">
-      <figure className="relative col-span-2 p-2 sm:col-span-1 sm:col-start-2 sm:p-4">
+      <figure className="relative col-span-2 p-2 max-sm:mx-auto max-sm:max-w-72 sm:col-span-1 sm:col-start-2 sm:p-4">
         <ChanhDaiMarkIsometric soundSrc={clickSoundSrc} />
 
         {/* w-36 needs ~1088px before the gutter can hold it without clipping,
@@ -77,7 +77,7 @@ export function ProfileHeader({
             )}
           </div>
 
-          <FlipSentences className="h-12.5 border-t border-line py-1 pl-4 sm:h-9">
+          <FlipSentences className="h-12.5 border-t border-line py-1 pl-4 max-sm:h-16 sm:h-9">
             {USER.flipSentences}
           </FlipSentences>
         </div>

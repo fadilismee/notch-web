@@ -1,5 +1,4 @@
 import type { Metadata } from "next"
-import { ArrowUpRight } from "lucide-react"
 
 import {
   HandwrittenArrow,
@@ -7,6 +6,8 @@ import {
 } from "@/features/portfolio/components/handwritten-note"
 import { Panel, PanelContent } from "@/features/portfolio/components/panel"
 import { ProfileHeader } from "@/features/portfolio/components/profile-header"
+
+import { LinkButtons } from "./link-buttons"
 
 export const metadata: Metadata = {
   title: "Zero Notch",
@@ -53,26 +54,22 @@ export default function ProfilePage() {
           <span className="-rotate-6">follow me</span>
           <HandwrittenArrow className="size-7 translate-x-3 -scale-x-100 -rotate-6" />
         </HandwrittenNote>
+
+        {/* Coretan "follow me" versi mobile: coretan desktop di atas
+            disembunyikan di layar kecil (posisinya di luar panel), jadi di
+            mobile ditampilkan sebagai baris biasa di bawah teks ex. */}
+        <div className="flex items-center justify-end gap-1 px-4 pb-3 lg:hidden">
+          <span className="font-handwritten text-xl/none text-muted-foreground select-none -rotate-6">
+            follow me
+          </span>
+          <HandwrittenArrow className="size-6 -rotate-6" />
+        </div>
       </Panel>
 
       <Panel>
         <h2 className="sr-only">Links</h2>
 
-        <div className="divide-y divide-line">
-          {PROFILE_LINKS.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              target="_blank"
-              rel="noopener"
-              className="group flex items-center gap-3 px-4 py-3 transition-colors hover:bg-foreground/5"
-            >
-              <span className="size-2.5 shrink-0 bg-muted-foreground/40 transition-colors group-hover:bg-foreground" />
-              <span className="text-sm text-foreground">{link.label}</span>
-              <ArrowUpRight className="ml-auto size-4 text-muted-foreground transition-colors group-hover:text-foreground" />
-            </a>
-          ))}
-        </div>
+        <LinkButtons links={PROFILE_LINKS} />
       </Panel>
     </div>
   )
