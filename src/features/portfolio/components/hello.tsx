@@ -1,4 +1,7 @@
+import { DownloadIcon } from "lucide-react"
+
 import { Markdown } from "@/components/markdown"
+import { Button } from "@/components/ui/button"
 import { HandwrittenArrow, HandwrittenNote } from "@/features/portfolio/components/handwritten-note"
 import { HelloTitle } from "@/features/portfolio/components/hello-title"
 import {
@@ -9,6 +12,10 @@ import {
 import { USER } from "@/features/portfolio/data/user"
 
 const ID = "hello"
+
+// Link unduhan langsung installer Windows (rilis v1.0.9 di repo aplikasi).
+const DOWNLOAD_URL =
+  "https://github.com/fadilismee/zeronotch/releases/download/v1.0.9/zeronotch-Setup-v1.0.9.exe"
 
 export function Hello() {
   return (
@@ -32,6 +39,21 @@ export function Hello() {
       <PanelContent>
         <div className="typeset typeset-description [&_li]:ps-0.5 [&_ul]:ps-3.5">
           <Markdown>{USER.about}</Markdown>
+        </div>
+
+        <div className="mt-4 flex flex-col items-start gap-2">
+          <Button
+            className="gap-2 pr-3 pl-4 shadow-[inset_0_0_1px] shadow-foreground/20"
+            nativeButton={false}
+            render={<a href={DOWNLOAD_URL} />}
+          >
+            <DownloadIcon />
+            Download for Windows
+          </Button>
+          <p className="text-sm text-muted-foreground">
+            Version 1.0.9 · Windows 10/11 64-bit · GPL-3.0 · Linux coming
+            soon
+          </p>
         </div>
       </PanelContent>
 

@@ -1,4 +1,3 @@
-import { SOURCE_CODE_GITHUB_URL } from "@/config/site"
 import { USER } from "@/features/portfolio/data/user"
 
 import packageJson from "../../package.json"
@@ -49,9 +48,11 @@ export function getBuildInfo(): BuildInfo {
 
   return {
     commitShortSha: commitSha?.slice(0, SHORT_SHA_LENGTH) ?? null,
+    // Link ke repo LANDING page (notch-web), karena VERCEL_GIT_COMMIT_SHA
+    // adalah commit repo ini, bukan repo aplikasi zeronotch.
     commitUrl:
       commitSha && environment !== "development"
-        ? `${SOURCE_CODE_GITHUB_URL}/commit/${commitSha}`
+        ? `https://github.com/fadilismee/notch-web/commit/${commitSha}`
         : null,
     environment,
     date: BUILD_DATE,

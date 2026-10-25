@@ -2,7 +2,7 @@ import Link from "next/link"
 
 import { LICENSE, SOURCE_CODE_GITHUB_URL } from "@/config/site"
 import type { BuildInfo } from "@/lib/build-info"
-import { getBuildInfo, getStack } from "@/lib/build-info"
+import { getBuildInfo } from "@/lib/build-info"
 import { cn } from "@/lib/utils"
 import { Separator } from "@/components/ui/separator"
 import { DmcaIcon, GitHubIcon, LinkedInIcon, XIcon } from "@/components/icons"
@@ -25,23 +25,23 @@ const INSPIRED_BY = [
   "shadcncraft",
 ]
 
-const OPENPANEL_URL =
-  "https://openpanel.dev?utm_source=zero-notch&utm_medium=referral&utm_campaign=footer"
-
-// Not derived from `SITE_INFO.url`: that follows `NEXT_PUBLIC_APP_URL` and
-// would read `ncdai.localhost` in dev.
-const SITE_TITLE = "zero-notch"
+const SITE_TITLE = "zeronotch"
 
 const SITE_SUBTITLE = packageJson.description
 
 const GITHUB_RELEASES_URL =
   "https://github.com/fadilismee/zeronotch/releases"
 
-// Jumlah unduhan dari GitHub Releases API (jumlah event unduhan per aset,
-// bukan jumlah orang unik — satu orang yang mengunduh 2x terhitung 2x).
-// Diambil saat build, jadi angka di footer ikut update tiap situs di-build
-// ulang; kalau API gagal, footer menampilkan tanda "—", bukan angka palsu.
-async function getReleaseDownloads(): Promise<number | null> {
+// Data rilis aplikasi dari GitHub Releases API: total event unduhan per aset
+// (bukan jumlah orang unik) + tanggal publikasi rilis terbaru. Diambil saat
+// build, jadi angka & tanggal ikut update tiap situs di-build ulang; kalau
+// API gagal, footer menampilkan tanda "—", bukan angka/tanggal palsu.
+type ReleaseInfo = {
+  downloads: number | null
+  publishedAt: string | null
+}
+
+async function getReleaseInfo(): Promise<ReleaseInfo> {
   try {
     const res = await fetch(
       "https://api.github.com/repos/fadilismee/zeronotch/releases",
@@ -50,11 +50,12 @@ async function getReleaseDownloads(): Promise<number | null> {
         next: { revalidate: 3600 },
       }
     )
-    if (!res.ok) return null
+    if (!res.ok) return { downloads: null, publishedAt: null }
     const releases = (await res.json()) as {
       assets?: { download_count?: number }[]
+      published_at?: string
     }[]
-    return releases.reduce(
+    const downloads = releases.reduce(
       (total, release) =>
         total +
         (release.assets ?? []).reduce(
@@ -63,10 +64,30 @@ async function getReleaseDownloads(): Promise<number | null> {
         ),
       0
     )
+    return { downloads, publishedAt: releases[0]?.published_at ?? null }
   } catch {
-    return null
+    return { downloads: null, publishedAt: null }
   }
 }
+
+function formatReleaseDate(iso: string): string {
+  return new Intl.DateTimeFormat("en-GB", {
+    timeZone: "Asia/Jakarta",
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  }).format(new Date(iso))
+}
+
+// Stack aplikasi zeronotch (data dari pemilik repo, bukan stack landing page
+// ini yang berbasis Next.js). Dependencies yang terkonfirmasi: node-forge.
+const APP_STACK = [
+  "Electron 44",
+  "Node.js 18+",
+  "JavaScript",
+  "HTML",
+  "CSS",
+]
 
 /** Footer laid out as the title block of a technical drawing. */
 export async function SiteFooterCad() {
@@ -75,8 +96,8 @@ export async function SiteFooterCad() {
   const linkedinLink = SOCIAL.linkedin
 
   const build = getBuildInfo()
-  const stack = getStack()
-  const downloads = await getReleaseDownloads()
+  const release = await getReleaseInfo()
+  const downloads = release.downloads
 
   return (
     <footer className="max-w-screen overflow-x-clip px-2">
@@ -97,11 +118,11 @@ export async function SiteFooterCad() {
             <Field label="Crafted by">
               <a
                 className="link-underline"
-                href="https://zerotime.web.id"
+                href="https://github.com/fadilismee"
                 target="_blank"
                 rel="noopener"
               >
-                zerotime
+                fadilismee
               </a>
             </Field>
 
@@ -110,7 +131,13 @@ export async function SiteFooterCad() {
             </Field>
 
             <Field label="Date">
-              <time dateTime={build.date}>{build.date}</time>
+              {release.publishedAt ? (
+                <time dateTime={release.publishedAt.slice(0, 10)}>
+                  {formatReleaseDate(release.publishedAt)}
+                </time>
+              ) : (
+                "—"
+              )}
             </Field>
 
             <Field label="Downloads">
@@ -157,51 +184,30 @@ export async function SiteFooterCad() {
 
             <Field className="col-span-2" label="Stack">
               <ul className="flex flex-col gap-0.5">
-                {stack.map((entry) => (
+                {APP_STACK.map((entry) => (
                   <li key={entry}>{entry}</li>
                 ))}
               </ul>
             </Field>
 
+            <Field label="Dependencies">node-forge</Field>
+
             <Field label="Analytics">
               <ul className="flex flex-col gap-0.5">
-                <li>
-                  <a
-                    className="link-underline"
-                    href={OPENPANEL_URL}
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    OpenPanel
-                  </a>
-                </li>
-                <li>Google Analytics</li>
+                <li>Privacy-first</li>
+                <li>No tracking configured</li>
               </ul>
             </Field>
 
-            <Field label="For agents">
-              <ul className="flex flex-col gap-0.5">
-                <li>
-                  <a
-                    className="link-underline"
-                    href="/llms.txt"
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    llms.txt
-                  </a>
-                </li>
-                <li>
-                  <a
-                    className="link-underline"
-                    href="/index.md"
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    index.md
-                  </a>
-                </li>
-              </ul>
+            <Field label="Release notes">
+              <a
+                className="link-underline"
+                href={GITHUB_RELEASES_URL}
+                target="_blank"
+                rel="noopener"
+              >
+                v1.0.9
+              </a>
             </Field>
 
             {/* Inspired by disembunyikan dulu sesuai permintaan —
@@ -309,12 +315,16 @@ export async function SiteFooterCad() {
 }
 
 function BuildValue({ build }: { build: BuildInfo }) {
+  // Versi aplikasi (v1.0.9) + hash commit landing page saat build. Kalau
+  // hash tidak tersedia (mis. build lokal tanpa Vercel env), tampilkan
+  // versinya saja, bukan hash palsu.
   if (!build.commitShortSha) {
-    return <span className="text-muted-foreground">unavailable</span>
+    return <span>v1.0.9</span>
   }
 
   return (
     <>
+      v1.0.9 ·{" "}
       {build.commitUrl ? (
         <a
           className="link-underline"
