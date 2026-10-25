@@ -8,7 +8,7 @@ import { Panel, PanelContent } from "@/features/portfolio/components/panel"
 import { ProfileHeader } from "@/features/portfolio/components/profile-header"
 
 import { LinkButtons } from "./link-buttons"
-import { PROFILE_SOUNDS } from "./sounds"
+import { DIAMOND_SOUNDS } from "./sounds"
 
 export const metadata: Metadata = {
   title: "Zero Notch",
@@ -29,10 +29,6 @@ const PROFILE_LINKS = [
   // { label: "X", href: "#" },
   // { label: "Donasi", href: "#" },
 ]
-
-// Klik diamond memutar 1 suara acak tiap klik (tidak mengulang bunyi
-// sebelumnya): 8 suara tombol link + fahhh.
-const DIAMOND_SOUNDS = [...PROFILE_SOUNDS, "/sounds/fahhh-pump.mp3"]
 
 // Halaman profil ala screenshot: hero diamond + profil + tombol link,
 // TANPA navbar atas (route ini di luar grup (app), jadi SiteHeader dan
