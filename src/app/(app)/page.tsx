@@ -54,7 +54,14 @@ export default function HomePage() {
           {/* Zero Notch dalam angka dinonaktifkan sementara — kode komponen
               tetap ada di features/portfolio/components/numbers, tidak dihapus. */}
           {/* <Numbers /> */}
-          <Testimonials />
+          {/* Section Review dinonaktifkan sementara — belum ada review
+              asli, jadi tidak ditampilkan dulu daripada placeholder.
+              Komponen & datanya tetap ada di
+              features/portfolio/components/testimonials dan
+              features/portfolio/data/testimonials.tsx, bisa dikembalikan
+              dengan menambah satu baris <Testimonials /> di sini saat
+              review asli sudah masuk. */}
+          {/* <Testimonials /> */}
           <Separator />
 
           <Components />

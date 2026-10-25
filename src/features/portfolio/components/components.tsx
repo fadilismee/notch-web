@@ -81,7 +81,7 @@ export function Components() {
           variant="secondary"
           size="sm"
           nativeButton={false}
-          render={<Link href="/components" />}
+          render={<Link href="#components" />}
         >
           All components
           <ArrowRightIcon />

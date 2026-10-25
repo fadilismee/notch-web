@@ -1,4 +1,5 @@
 import { Markdown } from "@/components/markdown"
+import { HandwrittenArrow, HandwrittenNote } from "@/features/portfolio/components/handwritten-note"
 import { HelloTitle } from "@/features/portfolio/components/hello-title"
 import {
   Panel,
@@ -16,6 +17,17 @@ export function Hello() {
         <h2 className="sr-only">About</h2>
         <HelloTitle />
       </PanelHeader>
+
+      {/* Coretan highlight untuk link download di teks About (gaya sama
+          seperti coretan di panel donasi & Blocks): pointer-events-none
+          supaya tidak menghalangi klik, hanya tampil di layar lebar. */}
+      <HandwrittenNote
+        className="top-4 left-full ml-3 hidden w-36 flex-col items-start xl:flex"
+        aria-hidden
+      >
+        <span className="-rotate-3">unduh di sini</span>
+        <HandwrittenArrow className="mt-2 -rotate-3" />
+      </HandwrittenNote>
 
       <PanelContent>
         <div className="typeset typeset-description [&_li]:ps-0.5 [&_ul]:ps-3.5">

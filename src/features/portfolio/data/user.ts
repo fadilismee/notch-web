@@ -34,13 +34,13 @@ export const USER: User = {
 - Repo: [fadilismee/zeronotch](https://github.com/fadilismee/zeronotch), lisensi GPL-3.0, dibuat 25 Okt 2026. Per 25 Okt 2026: 0 stars, 1 rilis (v1.0.9).
 - Dukungan: [cebanmatters.com/zeronotch](https://cebanmatters.com/zeronotch).
 `,
-  avatar: "/zero-notch-app-icon.svg",
-  avatarSketch: "/zero-notch-app-icon.svg",
+  avatar: "/zero-notch-cat-avatar.jpg",
+  avatarSketch: "/zero-notch-cat-avatar.jpg",
   avatarVariants: {
-    lightOff: "/zero-notch-app-icon.svg",
-    lightOn: "/zero-notch-app-icon.svg",
-    darkOff: "/zero-notch-app-icon.svg",
-    darkOn: "/zero-notch-app-icon.svg",
+    lightOff: "/zero-notch-cat-avatar.jpg",
+    lightOn: "/zero-notch-cat-avatar.jpg",
+    darkOff: "/zero-notch-cat-avatar.jpg",
+    darkOn: "/zero-notch-cat-avatar.jpg",
   },
   ogImage: "/zero-notch-app-icon.svg",
   namePronunciationUrl: "",

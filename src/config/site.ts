@@ -22,26 +22,24 @@ export const META_THEME_COLORS = {
   dark: "#09090b",
 }
 
+/* Nav one-page dulu: semua href adalah anchor ke section yang ada di
+   homepage, bukan halaman terpisah. Craft & Blog dihapus dari nav karena
+   tidak ada section-nya di homepage (Blog sudah dinonaktifkan, Craft
+   hanya halaman terpisah). Kembalikan href halaman (/components,
+   /blocks, /craft, /blog, /sponsors) kalau situs multi-page diaktifkan
+   lagi. */
 export const MAIN_NAV: NavItem<Route>[] = [
   {
     title: "Components",
-    href: "/components",
+    href: "#components",
   },
   {
     title: "Blocks",
-    href: "/blocks",
-  },
-  {
-    title: "Craft",
-    href: "/craft",
-  },
-  {
-    title: "Blog",
-    href: "/blog",
+    href: "#blocks",
   },
   {
     title: "Thanks",
-    href: "/sponsors",
+    href: "#sponsors",
   },
 ]
 
