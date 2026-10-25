@@ -44,7 +44,7 @@ export const USER: User = {
     darkOff: "/zero-notch-cat-avatar.jpg",
     darkOn: "/zero-notch-cat-avatar.jpg",
   },
-  ogImage: "/zero-notch-app-icon.svg",
+  ogImage: "/zero-notch-og.png",
   namePronunciationUrl: "",
   timeZone: "Asia/Jakarta",
   keywords: [

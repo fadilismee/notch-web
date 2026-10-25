@@ -13,12 +13,19 @@ export const getCachedContributions = unstable_cache(
       throw new Error("NEXT_PUBLIC_GITHUB_CONTRIBUTIONS_API_URL is not set")
     }
 
-    const res = await fetch(`${apiUrl}/${username}?y=last`)
-    if (!res.ok) {
+    // Fetch ke API contributions bisa gagal dari mesin build (timeout /
+    // jaringan), dan kegagalan itu tidak boleh menggagalkan seluruh build:
+    // kalau gagal, kembalikan daftar kosong seperti saat respons tidak OK.
+    try {
+      const res = await fetch(`${apiUrl}/${username}?y=last`)
+      if (!res.ok) {
+        return []
+      }
+      const data = (await res.json()) as GitHubContributionsResponse
+      return data.contributions ?? []
+    } catch {
       return []
     }
-    const data = (await res.json()) as GitHubContributionsResponse
-    return data.contributions ?? []
   },
   ["github-contributions"],
   { revalidate: 86400 } // Cache for 1 day (86400 seconds)
