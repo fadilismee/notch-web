@@ -1,12 +1,18 @@
+import { Suspense } from "react"
 import type { Metadata } from "next"
 
-import { GitHubContributions } from "@/features/portfolio/components/github-contributions"
+import { getGitHubContributions } from "@/features/portfolio/data/github-contributions"
 import {
   HandwrittenArrow,
   HandwrittenNote,
 } from "@/features/portfolio/components/handwritten-note"
 import { Panel, PanelContent } from "@/features/portfolio/components/panel"
 import { ProfileHeader } from "@/features/portfolio/components/profile-header"
+
+import {
+  ProfileContributionFallback,
+  ProfileContributionGraph,
+} from "./graph"
 
 export const metadata: Metadata = {
   title: "Zero Notch",
@@ -20,28 +26,17 @@ export const metadata: Metadata = {
 // SiteBottomNav tidak ikut dirender). Yang diubah dari tampilan asli hanya:
 // 1. tidak ada navbar,
 // 2. ikon sosial diganti teks ex,
-// 3. grafik contributions dibuat satu strip API yang bergoyang kiri-kanan
-//    (bukan area scroll manual). Sisanya memakai komponen yang sama persis
-//    dengan homepage (ProfileHeader + GitHubContributions).
+// 3. grafik contributions dari API yang sama tapi bloknya lebih kecil supaya
+//    muat penuh di dalam panel tanpa scrollbar dan tanpa terpotong,
+// 4. klik diamond memutar bunyi fahhh (MP3 myinstants, file lokal di
+//    public/sounds/fahhh-pump.mp3), bukan metal-click bawaan.
+// Sisanya memakai komponen yang sama persis dengan homepage.
 export default function ProfilePage() {
+  const contributions = getGitHubContributions()
+
   return (
     <div className="mx-auto md:max-w-3xl">
-      <style>{`
-        /* Satu strip contributions yang bergoyang kiri-kanan, tanpa scrollbar. */
-        .profile-pan { overflow: hidden; }
-        .profile-pan .overflow-x-auto { overflow-x: clip; }
-        .profile-pan > * { animation: profile-sway 18s ease-in-out infinite; }
-        @keyframes profile-sway {
-          0%, 100% { transform: translateX(0); }
-          25% { transform: translateX(-48px); }
-          75% { transform: translateX(48px); }
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .profile-pan > * { animation: none; }
-        }
-      `}</style>
-
-      <ProfileHeader />
+      <ProfileHeader clickSoundSrc="/sounds/fahhh-pump.mp3" />
 
       <Panel className="screen-line-bottom-none screen-line-top-none">
         <PanelContent>
@@ -56,9 +51,13 @@ export default function ProfilePage() {
         </HandwrittenNote>
       </Panel>
 
-      <div className="profile-pan">
-        <GitHubContributions />
-      </div>
+      <Panel>
+        <h2 className="sr-only">GitHub contributions</h2>
+
+        <Suspense fallback={<ProfileContributionFallback />}>
+          <ProfileContributionGraph contributions={contributions} />
+        </Suspense>
+      </Panel>
     </div>
   )
 }

@@ -24,8 +24,11 @@ const transition: Transition = {
 /**
  * Designed by ncdai on Figma with [Fast Isometric Plugin](https://www.figma.com/community/plugin/1249759048471403961).
  * Inspired by tailwindcss.com.
+ *
+ * soundSrc: kalau diisi, klik memutar file audio itu (mis. di page profil);
+ * kalau kosong, klik memakai bunyi metal-click bawaan seperti di homepage.
  */
-export function ChanhDaiMarkIsometric() {
+export function ChanhDaiMarkIsometric({ soundSrc }: { soundSrc?: string }) {
   const id = useId()
   const ids = {
     facePattern: `ncdai-face-pattern-${id}`,
@@ -37,6 +40,17 @@ export function ChanhDaiMarkIsometric() {
   const ref = useRef<SVGSVGElement>(null)
 
   const [play] = useSound(metalClickSound)
+
+  // Pemutar file audio khusus (mis. MP3 meme) — dibuat sekali, dipakai ulang.
+  const fileAudioRef = useRef<HTMLAudioElement | null>(null)
+  const playFileSound = () => {
+    if (!soundSrc) return
+    if (!fileAudioRef.current) {
+      fileAudioRef.current = new Audio(soundSrc)
+    }
+    fileAudioRef.current.currentTime = 0
+    void fileAudioRef.current.play().catch(() => {})
+  }
 
   const shouldReduceMotion = useReducedMotion()
   const isInView = useInView(ref, { margin: "80px" })
@@ -87,7 +101,13 @@ export function ChanhDaiMarkIsometric() {
       aria-hidden
       initial="normal"
       whileTap="pressed"
-      onTap={() => play()}
+      onTap={() => {
+        if (soundSrc) {
+          playFileSound()
+        } else {
+          play()
+        }
+      }}
     >
       <defs>
         <pattern
