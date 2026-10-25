@@ -45,7 +45,7 @@ export function Hello() {
           <Button
             className="gap-2 pr-3 pl-4 shadow-[inset_0_0_1px] shadow-foreground/20"
             nativeButton={false}
-            render={<a href={DOWNLOAD_URL} />}
+            render={<a href={DOWNLOAD_URL} id="tombol-download" />}
           >
             <DownloadIcon />
             Download for Windows
